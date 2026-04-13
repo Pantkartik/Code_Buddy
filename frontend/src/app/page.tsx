@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Code2, Users, Zap, Github, Terminal, Compass, Star, ChevronRight, Activity } from 'lucide-react';
+import { ArrowRight, Code2, Users, Zap, Github, Terminal, Compass, Star, ChevronRight, Activity, Lock } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function LandingPage() {
