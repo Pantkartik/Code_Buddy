@@ -51,152 +51,151 @@ export default function LoginPage() {
   if (!isClient) return null;
 
   return (
-    <div className="min-h-screen flex bg-zinc-950 text-white font-sans selection:bg-indigo-500/30">
-      {/* Left visual pane - visible on desktop */}
-      <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-zinc-900 border-r border-zinc-800 flex-col justify-between p-12">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-indigo-900/40 via-zinc-900/10 to-zinc-950 pointer-events-none" />
-        <div className="absolute -left-40 -bottom-40 w-96 h-96 bg-purple-500/20 blur-[120px] rounded-full pointer-events-none" />
-        
-        <div className="relative z-10 flex items-center gap-2 font-bold text-2xl tracking-tight">
-          <Code2 className="text-indigo-500 w-8 h-8" />
-          CodeBuddy
-        </div>
-
-        <div className="relative z-10 mb-20 max-w-lg">
-          <h2 className="text-4xl font-bold tracking-tight mb-6 leading-tight">
-            Resume your journey to mastery.
-          </h2>
-          <p className="text-zinc-400 text-lg leading-relaxed mb-10">
-            Log back in to view your personalized dashboard, track your streaks, and seamlessly connect with top-tier developers. The codebase awaits.
-          </p>
-          <div className="flex -space-x-4">
-            {[1, 2, 3, 4].map((i) => (
-               <div key={i} className="w-12 h-12 rounded-full border-2 border-zinc-900 bg-zinc-800 flex items-center justify-center overflow-hidden">
-                 <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="avatar" />
-               </div>
-            ))}
-             <div className="w-12 h-12 rounded-full border-2 border-zinc-900 bg-indigo-600 flex items-center justify-center text-xs font-bold z-10">
-               +2k
-             </div>
-          </div>
-          <p className="text-sm font-medium text-zinc-500 mt-4">Join 2000+ developers online right now.</p>
-        </div>
+    <div className="relative min-h-screen flex items-center justify-center bg-[#030303] text-zinc-100 selection:bg-indigo-500/30 overflow-hidden font-sans">
+      
+      {/* Dynamic Ambient Background */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+        <div className="absolute w-[600px] h-[600px] bg-indigo-600/20 rounded-full blur-[120px] mix-blend-screen opacity-50 animate-pulse transition-transform duration-[10000ms] -translate-x-1/2 -top-40" />
+        <div className="absolute w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[100px] mix-blend-screen opacity-50 translate-x-1/3 bottom-0" />
       </div>
 
-      {/* Right login form pane */}
-      <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-20 xl:px-32 relative">
-        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-indigo-500/5 via-zinc-900/0 to-zinc-950 pointer-events-none" />
+      <div className="relative z-10 w-full max-w-5xl flex flex-col lg:flex-row items-center gap-12 px-6 lg:px-12 py-12">
         
-        <div className="mx-auto w-full max-w-sm relative z-10">
-          <div className="lg:hidden mb-12 flex items-center gap-2 font-bold text-2xl tracking-tight justify-center">
-            <Code2 className="text-indigo-500 w-8 h-8" />
-            CodeBuddy
-          </div>
-
-          <div>
-            <h2 className="text-3xl font-extrabold tracking-tight">Welcome back</h2>
-            <p className="mt-2 text-sm text-zinc-400">
-              Please enter your details to sign in.
-            </p>
-          </div>
-
-          <div className="mt-8">
-            <div className="grid grid-cols-1 gap-3">
-              <button className="flex items-center justify-center gap-3 w-full border border-zinc-800 hover:border-zinc-700 bg-zinc-900/50 hover:bg-zinc-800 transition-all rounded-xl px-4 py-3 text-sm font-medium shadow-sm">
-                <Github className="w-4 h-4" /> Sign in with GitHub
-              </button>
+        {/* Left Marketing / Branding Section */}
+        <div className="flex-1 text-center lg:text-left flex flex-col justify-center">
+          <Link href="/" className="inline-flex items-center justify-center lg:justify-start gap-2 mb-8 group transition-opacity hover:opacity-80">
+            <div className="bg-indigo-500/10 p-2 rounded-xl border border-indigo-500/20 group-hover:bg-indigo-500/20 transition-colors">
+              <Code2 className="w-6 h-6 text-indigo-400" />
             </div>
+            <span className="text-2xl font-bold tracking-tight text-white shadow-indigo-500/20 drop-shadow-md">
+              CodeBuddy
+            </span>
+          </Link>
+          
+          <h1 className="text-4xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-[1.1] text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-zinc-500">
+            Welcome back to the collective.
+          </h1>
+          <p className="text-lg lg:text-xl text-zinc-400 max-w-lg mx-auto lg:mx-0 leading-relaxed font-light mb-10">
+            Re-enter your personalized dashboard, connect with peer engineers, and resume shipping beautiful code together.
+          </p>
 
-            <div className="mt-6">
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-zinc-800" />
+          {/* Social Proof Mini Component */}
+          <div className="hidden lg:flex items-center gap-4 bg-white/5 border border-white/10 p-4 rounded-2xl backdrop-blur-xl w-max">
+            <div className="flex -space-x-3">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="w-10 h-10 rounded-full border-2 border-[#030303] overflow-hidden">
+                   <img src={`https://i.pravatar.cc/100?img=${i + 15}`} alt="avatar" className="w-full h-full object-cover" />
                 </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-zinc-950 text-zinc-500">Or continue with</span>
-                </div>
-              </div>
+              ))}
             </div>
-
-            <div className="mt-6">
-              <form onSubmit={handleSubmit} className="space-y-5">
-                {error && (
-                  <div className="bg-red-500/10 border border-red-500/20 text-red-400 px-4 py-3 rounded-xl text-sm flex items-center justify-between animate-in fade-in slide-in-from-top-2">
-                    {error}
-                  </div>
-                )}
-                <div>
-                  <label className="block text-sm font-medium text-zinc-300 mb-1.5" htmlFor="email">
-                    Email Address
-                  </label>
-                  <div className="relative group">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-zinc-500 group-focus-within:text-indigo-400 transition-colors">
-                      <Mail className="h-4 w-4" />
-                    </div>
-                    <input
-                      id="email"
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="block w-full pl-10 pr-3 py-3 bg-zinc-900/30 border border-zinc-800 rounded-xl focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-white placeholder-zinc-600 outline-none transition-all hover:border-zinc-700"
-                      placeholder="you@example.com"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <div className="flex justify-between items-center mb-1.5">
-                    <label className="block text-sm font-medium text-zinc-300" htmlFor="password">
-                      Password
-                    </label>
-                    <Link href="#" className="text-xs font-semibold text-indigo-400 hover:text-indigo-300 transition-colors">
-                      Forgot password?
-                    </Link>
-                  </div>
-                  <div className="relative group">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-zinc-500 group-focus-within:text-indigo-400 transition-colors">
-                      <Lock className="h-4 w-4" />
-                    </div>
-                    <input
-                      id="password"
-                      type="password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      className="block w-full pl-10 pr-3 py-3 bg-zinc-900/30 border border-zinc-800 rounded-xl focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-white placeholder-zinc-600 outline-none transition-all hover:border-zinc-700"
-                      placeholder="••••••••"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="pt-2">
-                  <button
-                    type="submit"
-                    disabled={isLoading}
-                    className="group w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-xl shadow-[0_0_15px_rgba(79,70,229,0.2)] text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:ring-offset-zinc-950 disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:scale-[1.02]"
-                  >
-                    {isLoading ? (
-                      <Loader2 className="animate-spin h-5 w-5" />
-                    ) : (
-                      <>
-                        Sign In
-                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </>
-                    )}
-                  </button>
-                </div>
-              </form>
-
-              <p className="mt-8 text-center text-sm tracking-wide text-zinc-400">
-                Don't have an account?{' '}
-                <Link href="/register" className="font-semibold text-white hover:text-indigo-400 transition-colors">
-                  Sign up for free
-                </Link>
-              </p>
+            <div className="text-sm font-medium">
+              <span className="text-white">Active Pairing</span>
+              <p className="text-indigo-400">Join 3,204 online</p>
             </div>
           </div>
         </div>
+
+        {/* Right Form Section (Glassmorphism) */}
+        <div className="w-full max-w-md lg:max-w-lg">
+          <div className="bg-zinc-900/40 backdrop-blur-3xl border border-white/10 p-8 sm:p-10 rounded-[2rem] shadow-[0_0_50px_rgba(0,0,0,0.5)] relative overflow-hidden">
+            {/* Subtle inner reflection */}
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+            
+            <div className="mb-10 text-center">
+              <h2 className="text-2xl font-semibold tracking-tight text-white">Sign In</h2>
+              <p className="text-sm text-zinc-400 mt-2">Log in via external provider or email securely.</p>
+            </div>
+
+            <button className="flex items-center justify-center gap-3 w-full bg-white text-zinc-950 font-semibold rounded-xl px-4 py-3 hover:bg-zinc-200 transition-colors shadow-lg shadow-white/5 active:scale-[0.98]">
+              <Github className="w-5 h-5" /> Continue with GitHub
+            </button>
+
+            <div className="flex items-center gap-4 my-8">
+              <div className="flex-1 border-t border-zinc-800"></div>
+              <span className="text-xs font-medium text-zinc-500 uppercase tracking-widest">Or</span>
+              <div className="flex-1 border-t border-zinc-800"></div>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {error && (
+                <div className="bg-red-500/10 border border-red-500/20 text-red-400 px-4 py-3 rounded-xl text-sm flex items-center justify-between animate-in fade-in zoom-in-95 duration-300">
+                  {error}
+                </div>
+              )}
+
+              <div className="space-y-1.5">
+                <label className="text-sm font-medium text-zinc-300 px-1" htmlFor="email">
+                  Email Address
+                </label>
+                <div className="relative group">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-zinc-500 group-focus-within:text-indigo-400 transition-colors">
+                    <Mail className="h-4 w-4" />
+                  </div>
+                  <input
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="block w-full pl-11 pr-4 py-3.5 bg-black/20 border border-white/10 rounded-xl focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-400 text-white placeholder-zinc-600 outline-none transition-all hover:border-white/20 sm:text-sm"
+                    placeholder="you@email.com"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <div className="flex justify-between items-center px-1">
+                  <label className="text-sm font-medium text-zinc-300" htmlFor="password">
+                    Password
+                  </label>
+                  <Link href="#" className="text-xs font-medium text-zinc-500 hover:text-indigo-400 transition-colors">
+                    Forgot password?
+                  </Link>
+                </div>
+                <div className="relative group">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-zinc-500 group-focus-within:text-indigo-400 transition-colors">
+                    <Lock className="h-4 w-4" />
+                  </div>
+                  <input
+                    id="password"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="block w-full pl-11 pr-4 py-3.5 bg-black/20 border border-white/10 rounded-xl focus:ring-2 focus:ring-indigo-500/50 focus:border-indigo-400 text-white placeholder-zinc-600 outline-none transition-all hover:border-white/20 sm:text-sm tracking-widest"
+                    placeholder="••••••••"
+                    required
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="relative group w-full flex justify-center items-center py-3.5 px-4 rounded-xl text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:ring-offset-zinc-950 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform active:scale-[0.98] overflow-hidden"
+              >
+                {/* Button Inner Glow */}
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                
+                {isLoading ? (
+                  <Loader2 className="animate-spin h-5 w-5" />
+                ) : (
+                  <>
+                    <span className="relative z-10">Access Dashboard</span>
+                    <ArrowRight className="relative z-10 ml-2 w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
+                  </>
+                )}
+              </button>
+            </form>
+
+            <p className="mt-8 text-center text-sm text-zinc-500">
+              New to CodeBuddy?{' '}
+              <Link href="/register" className="font-semibold text-indigo-400 hover:text-indigo-300 transition-colors">
+                Create an account
+              </Link>
+            </p>
+          </div>
+        </div>
+        
       </div>
     </div>
   );
