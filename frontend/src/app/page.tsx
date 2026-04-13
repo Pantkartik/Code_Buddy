@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Code2, Users, Zap, Github, Terminal, Compass, Star, ChevronRight, Activity, Lock } from 'lucide-react';
+import { ArrowRight, Terminal, Github, GitPullRequest, Combine, Zap, Shield, Cpu, Activity, MoveRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 export default function LandingPage() {
@@ -9,203 +9,176 @@ export default function LandingPage() {
   useEffect(() => setMounted(true), []);
 
   return (
-    <div className="min-h-screen bg-[#030303] text-zinc-50 font-sans selection:bg-indigo-500/30 overflow-x-hidden">
+    <div className="min-h-screen bg-[#000000] text-zinc-300 font-sans selection:bg-zinc-800 overflow-x-hidden">
       
-      {/* Dynamic Background */}
+      {/* Structural Minimal Grid Background */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-600/20 rounded-full blur-[120px] mix-blend-screen opacity-50 animate-pulse" />
-        <div className="absolute top-[20%] right-[-10%] w-[30%] h-[50%] bg-purple-600/10 rounded-full blur-[120px] mix-blend-screen opacity-50" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_0%,#000_20%,transparent_100%)]" />
       </div>
 
-      <div className="relative z-10">
-        {/* Header */}
-        <header className="absolute top-0 left-0 right-0 p-6 flex flex-col md:flex-row justify-between items-center text-zinc-300 z-50 transition-all duration-500">
-          <div className="flex items-center gap-2 font-bold text-xl text-white tracking-tight mb-4 md:mb-0">
-            <div className="bg-indigo-500/10 p-2 rounded-xl border border-indigo-500/20">
-              <Code2 className="w-5 h-5 text-indigo-400" />
+      <div className="relative z-10 flex flex-col min-h-screen">
+        
+        {/* Crisp Linear-Style Navigation */}
+        <header className="w-full max-w-7xl mx-auto p-6 flex flex-col md:flex-row justify-between items-center z-50">
+          <div className="flex items-center gap-3 font-semibold text-white tracking-tight mb-4 md:mb-0">
+            <div className="bg-white text-black p-1 rounded-sm">
+              <Terminal className="w-4 h-4" strokeWidth={3} />
             </div>
             CodeBuddy
           </div>
           
-          <nav className="flex items-center gap-6 bg-white/5 border border-white/10 px-6 py-2.5 rounded-full backdrop-blur-md mb-4 md:mb-0">
-            <Link href="/about" className="text-sm font-medium hover:text-white transition-colors">
-              About
+          <nav className="flex items-center gap-8 mb-4 md:mb-0">
+            <Link href="/about" className="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200">
+              Platform
             </Link>
-            <Link href="/premium" className="text-sm font-medium hover:text-indigo-400 transition-colors flex items-center gap-1">
-              Premium <Zap className="w-3 h-3 text-indigo-400" />
+            <Link href="/premium" className="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200">
+              Changelog
             </Link>
-            <div className="w-px h-4 bg-white/10 mx-2" />
             <a 
               href="https://github.com/Pantkartik/Code_Buddy" 
               target="_blank" 
               rel="noreferrer"
-              className="flex items-center gap-1.5 text-xs font-medium text-zinc-400 hover:text-white transition-colors"
+              className="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200 flex items-center gap-2"
             >
-              <Github className="w-4 h-4" />
-              Open Source
+              GitHub
             </a>
           </nav>
 
-          <div className="flex items-center gap-4">
-            <Link href="/login" className="text-sm font-medium hover:text-white transition-colors">
-              Sign in
+          <div className="flex items-center gap-5">
+            <Link href="/login" className="text-sm font-medium text-zinc-400 hover:text-white transition-colors duration-200">
+              Log in
             </Link>
             <Link
               href="/register"
-              className="text-sm font-medium bg-white text-zinc-950 px-5 py-2.5 rounded-full hover:bg-zinc-200 transition-colors shadow-[0_0_15px_rgba(255,255,255,0.1)] active:scale-95"
+              className="text-sm font-semibold bg-white text-black px-4 py-2 rounded-md hover:bg-zinc-200 transition-colors duration-200"
             >
               Start Building
             </Link>
           </div>
         </header>
 
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 lg:pt-48 pb-32">
+        <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center pt-20 pb-32">
           
           {/* Hero Section */}
-          <div className={`flex flex-col items-center text-center transition-all duration-1000 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <a href="https://github.com/Pantkartik/Code_Buddy" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 backdrop-blur-sm text-xs font-medium text-indigo-300 hover:bg-indigo-500/20 hover:border-indigo-500/50 transition-all mb-8 cursor-pointer">
-              <Star className="w-3.5 h-3.5 text-indigo-400" /> 
-              <span>Star us on GitHub</span>
-              <div className="w-px h-3 bg-indigo-500/30 mx-1" />
-              <span className="flex items-center">v1.0 is Live <ChevronRight className="w-3 h-3 ml-0.5" /></span>
+          <div className={`transition-all duration-1000 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'} flex flex-col items-center text-center`}>
+            
+            <a href="https://github.com/Pantkartik/Code_Buddy" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-800 bg-zinc-900/40 text-xs font-mono text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200 transition-all mb-10">
+              <span>CodeBuddy Enterprise is now available</span>
+              <MoveRight className="w-3 h-3" />
             </a>
 
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-zinc-500 mb-8 max-w-5xl leading-[1.1]">
-              Find your next <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400 animate-gradient-x">
-                pair programming
-              </span> partner.
+            <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tighter text-white mb-6 max-w-4xl leading-[1.05]">
+              Pair programming for <br className="hidden md:block" />
+              high-velocity teams.
             </h1>
             
-            <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mb-12 leading-relaxed font-light px-4">
-              CodeBuddy is an open-source matching engine for developers. Connect instantly, track your coding streaks, and ship better architecture together.
+            <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mb-10 leading-relaxed font-normal">
+              A minimalist, brutalist matching engine designed strictly for software engineers. Find elite partners, sync your repositories, and execute together in real-time.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-5">
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <Link
                 href="/register"
-                className="group relative flex items-center justify-center gap-2 bg-indigo-600 text-white px-8 py-4 rounded-xl font-semibold overflow-hidden transition-all hover:scale-[1.02] active:scale-95 shadow-[0_0_40px_rgba(79,70,229,0.4)]"
+                className="group flex items-center justify-center gap-2 bg-white text-black px-6 py-3 rounded-md text-sm font-semibold transition-all hover:bg-zinc-200"
               >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                <span className="relative flex items-center gap-2">
-                  Launch Dashboard <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </span>
+                Access Platform <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link
-                href="/about"
-                className="group flex items-center justify-center gap-2 bg-white/5 border border-white/10 hover:bg-white/10 text-white px-8 py-4 rounded-xl font-semibold transition-all backdrop-blur-sm"
+              <button
+                className="flex items-center justify-center gap-2 bg-zinc-900 border border-zinc-800 text-white px-6 py-3 rounded-md text-sm font-semibold transition-all hover:bg-zinc-800"
               >
-                <Terminal className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />
-                View Documentation
-              </Link>
+                <Terminal className="w-4 h-4 text-zinc-400" />
+                Read the Documentation
+              </button>
             </div>
           </div>
 
-          {/* Hero Interface Mockup */}
-          <div className={`mt-24 lg:mt-32 relative mx-auto w-full max-w-5xl transition-all duration-1000 delay-300 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-            <div className="absolute -inset-1 rounded-[2.5rem] bg-gradient-to-b from-indigo-500/20 to-purple-500/0 blur-xl opacity-50" />
-            <div className="relative rounded-[2rem] bg-zinc-950/80 border border-white/10 shadow-2xl backdrop-blur-2xl overflow-hidden">
+          {/* IDE / Terminal Hero Visual */}
+          <div className={`mt-24 w-full max-w-4xl mx-auto relative transition-all duration-1000 delay-200 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}>
+            <div className="rounded-xl border border-zinc-800 bg-[#0A0A0A] shadow-2xl overflow-hidden font-mono text-sm leading-relaxed">
+              {/* Header Bar */}
+              <div className="h-10 border-b border-zinc-800 flex items-center px-4 bg-[#111111]">
+                <div className="flex gap-2">
+                  <div className="w-3 h-3 rounded-full bg-zinc-700" />
+                  <div className="w-3 h-3 rounded-full bg-zinc-700" />
+                  <div className="w-3 h-3 rounded-full bg-zinc-700" />
+                </div>
+                <div className="mx-auto text-zinc-500 text-xs">src/core/matching_engine.ts — CodeBuddy</div>
+              </div>
               
-              {/* Fake Window Header */}
-              <div className="h-12 border-b border-white/10 flex items-center px-6 gap-2 bg-white/[0.02]">
-                <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                <div className="w-3 h-3 rounded-full bg-green-500/80" />
-                <div className="ml-4 px-3 py-1 rounded-md bg-white/5 text-[10px] text-zinc-500 font-mono tracking-wider flex items-center gap-2 border border-white/5">
-                  <Lock className="w-3 h-3" /> codebuddy.io/dashboard
+              {/* Window Body */}
+              <div className="p-6 md:p-8 overflow-x-auto text-left whitespace-pre">
+                <div className="text-zinc-600 mb-4">{'// Initializing real-time pair session...'}</div>
+                
+                <div>
+                  <span className="text-pink-500">import</span> {'{'} <span className="text-blue-400">connectPeers</span> {'}'} <span className="text-pink-500">from</span> <span className="text-green-400">'@codebuddy/core'</span>;
                 </div>
-              </div>
-
-              {/* Fake Dashboard Content */}
-              <div className="p-8 grid grid-cols-1 md:grid-cols-3 gap-6 h-[400px]">
-                <div className="col-span-1 md:col-span-2 space-y-6">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="text-xl font-bold text-white">Algorithm Matrix</h3>
-                      <p className="text-sm text-zinc-400">Finding the perfect engineers...</p>
-                    </div>
-                    <div className="px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-400 text-xs font-bold animate-pulse">
-                      Searching
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    {[1, 2, 3].map((i) => (
-                      <div key={i} className="p-4 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between group hover:border-indigo-500/30 transition-colors">
-                        <div className="flex items-center gap-4">
-                          <div className="w-10 h-10 rounded-full bg-zinc-800 overflow-hidden">
-                            <img src={`https://i.pravatar.cc/100?img=${i + 30}`} alt="" className="object-cover w-full h-full" />
-                          </div>
-                          <div>
-                            <p className="text-sm font-semibold text-white group-hover:text-indigo-300 transition-colors">Developer Profile #{i * 142}</p>
-                            <p className="text-xs text-zinc-500 font-mono">React • Node.js • TypeScript</p>
-                          </div>
-                        </div>
-                        <button className="px-3 py-1.5 rounded-lg bg-indigo-600 text-xs font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                          Connect
-                        </button>
-                      </div>
-                    ))}
-                  </div>
+                <div className="mb-4">
+                  <span className="text-pink-500">import</span> {'{'} <span className="text-blue-400">WebSocketBridge</span> {'}'} <span className="text-pink-500">from</span> <span className="text-green-400">'@codebuddy/sys'</span>;
                 </div>
 
-                <div className="col-span-1 hidden md:flex flex-col gap-6">
-                  <div className="p-5 rounded-2xl bg-white/5 border border-white/5">
-                    <h4 className="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4">Your Streak</h4>
-                    <div className="flex items-end gap-2">
-                      <span className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">14</span>
-                      <span className="text-zinc-400 mb-1 font-medium">Days</span>
-                    </div>
-                    <div className="mt-4 flex gap-1">
-                      {[1,1,1,1,1,1,0].map((v, idx) => (
-                        <div key={idx} className={`h-8 flex-1 rounded-sm ${v ? 'bg-orange-500' : 'bg-white/10'}`} />
-                      ))}
-                    </div>
-                  </div>
-                  
-                  <div className="flex-1 p-5 rounded-2xl bg-indigo-600/10 border border-indigo-500/20 overflow-hidden relative">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/20 blur-2xl rounded-full" />
-                    <h4 className="text-xs font-bold text-indigo-300 uppercase tracking-widest mb-2 relative z-10">Premium Ready</h4>
-                    <p className="text-sm text-zinc-300 relative z-10 mb-4">Unlock advanced algorithm filters and priority matching.</p>
-                    <button className="text-xs font-semibold text-white bg-indigo-500 px-4 py-2 rounded-lg relative z-10">
-                      Upgrade Now
-                    </button>
-                  </div>
+                <div>
+                  <span className="text-pink-500">const</span> <span className="text-yellow-200">session</span> <span className="text-pink-500">=</span> <span className="text-pink-500">await</span> <span className="text-yellow-200">Session</span>.<span className="text-blue-400">init</span>({'{'}
+                </div>
+                <div>
+                  {'  '}requirements: {'['}<span className="text-green-400">'React'</span>, <span className="text-green-400">'WebRTC'</span>, <span className="text-green-400">'Go'</span>{']'},
+                </div>
+                <div>
+                  {'  '}strictMode: <span className="text-purple-400">true</span>,
+                </div>
+                <div>
+                  {'  '}timeout: <span className="text-purple-400">5000</span>
+                </div>
+                <div>{'}'});</div>
+                
+                <div className="my-4 text-zinc-600">{'// Resolving matching pool based on skill matrix'}</div>
+                
+                <div className="flex items-center">
+                  <span className="text-blue-400 mr-2">➜</span> 
+                  <span className="text-zinc-300">Searching global network</span>
+                  <span className="animate-[bounce_1.5s_infinite] ml-1">.</span>
+                  <span className="animate-[bounce_1.5s_infinite_0.2s] ml-1">.</span>
+                  <span className="animate-[bounce_1.5s_infinite_0.4s] ml-1">.</span>
+                </div>
+                <div className="mt-1 text-emerald-400">
+                  <span className="text-emerald-500">✓</span> Matched with <strong>@engineer_49</strong> (Latency: 14ms)
+                </div>
+                <div className="mt-1 text-zinc-400">
+                  Establishing secure tunneling to IDE environment... Done.
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Features Grid */}
-          <div className="grid md:grid-cols-3 gap-8 mt-32 lg:mt-48 relative relative z-10">
-            <div className="absolute inset-0 bg-zinc-900/50 blur-3xl rounded-full opacity-20 pointer-events-none" />
+          {/* Core Architecture Grid */}
+          <div className="mt-32 pt-20 border-t border-zinc-900 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 pl-px">
             {[
               {
-                icon: <Compass className="w-6 h-6 text-emerald-400" />,
-                title: 'Algorithmic Discovery',
-                desc: 'Stop wasting time interviewing random partners. Our engine analyzes your skill gaps and tech stack to surface the optimal pair.',
+                icon: <GitPullRequest className="w-5 h-5 text-zinc-100" />,
+                title: "Repository Sync",
+                desc: "Clone architectures globally. Your environments securely mirror across instances in under 120ms."
               },
               {
-                icon: <Activity className="w-6 h-6 text-orange-400" />,
-                title: 'Velocity Tracking',
-                desc: 'Maintain extreme coding velocity. Visually track your daily pairing streaks and log collaborative sessions natively.',
+                icon: <Cpu className="w-5 h-5 text-zinc-100" />,
+                title: "Algorithmic Matching",
+                desc: "No more random pairings. The engine checks skill graphs and timezones to output precise peer connections."
               },
               {
-                icon: <Code2 className="w-6 h-6 text-indigo-400" />,
-                title: 'Seamless Workflows',
-                desc: 'Engineered for the absolute best developer experience. Drop-in, match, share your IDE link, and begin building.',
+                icon: <Combine className="w-5 h-5 text-zinc-100" />,
+                title: "Live PR Review",
+                desc: "Jump straight into pull requests together. Highlight, annotate, and resolve merge conflicts interactively."
               },
-            ].map((feature, i) => (
-              <div
-                key={i}
-                className="group p-8 rounded-[2rem] bg-zinc-900/40 border border-white/5 backdrop-blur-xl hover:bg-zinc-800/60 hover:border-white/10 transition-all duration-300 transform hover:-translate-y-1"
-              >
-                <div className="bg-white/5 border border-white/10 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 shadow-inner group-hover:scale-110 transition-transform duration-300">
-                  {feature.icon}
+              {
+                icon: <Shield className="w-5 h-5 text-zinc-100" />,
+                title: "Enterprise Grade",
+                desc: "End-to-end encrypted web-socket tunnels. Your proprietary codebase data never actually touches our servers."
+              }
+            ].map((ft, i) => (
+              <div key={i} className="flex flex-col">
+                <div className="w-10 h-10 rounded-md border border-zinc-800 bg-zinc-900 flex items-center justify-center mb-5">
+                  {ft.icon}
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3 tracking-tight">{feature.title}</h3>
-                <p className="text-zinc-400 leading-relaxed font-light">{feature.desc}</p>
+                <h3 className="text-base font-semibold text-white mb-2">{ft.title}</h3>
+                <p className="text-sm text-zinc-500 leading-relaxed">{ft.desc}</p>
               </div>
             ))}
           </div>
