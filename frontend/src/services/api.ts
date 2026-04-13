@@ -3,11 +3,11 @@ import { User, Activity, Match } from '../types';
 
 export const authService = {
   login: async (credentials: any) => {
-    const { data } = await api.post('/users/login', credentials);
+    const { data } = await api.post('/auth/login', credentials);
     return data;
   },
   register: async (userData: any) => {
-    const { data } = await api.post('/users', userData);
+    const { data } = await api.post('/auth/register', userData);
     return data;
   },
   getProfile: async () => {
