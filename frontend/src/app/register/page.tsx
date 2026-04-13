@@ -52,12 +52,12 @@ export default function RegisterPage() {
   if (!isClient) return null;
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-[#030303] text-zinc-100 selection:bg-emerald-500/30 overflow-hidden font-sans">
+    <div className="relative min-h-screen flex items-center justify-center bg-[#030303] text-zinc-100 selection:bg-green-500/30 overflow-hidden font-sans">
       
-      {/* Dynamic Ambient Background - Flipped & Emerald hue for Register */}
+      {/* Dynamic Ambient Background - Flipped & Green hue for Register */}
       <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
-        <div className="absolute w-[600px] h-[600px] bg-emerald-600/20 rounded-full blur-[120px] mix-blend-screen opacity-50 animate-pulse transition-transform duration-[10000ms] translate-x-1/2 -top-40" />
-        <div className="absolute w-[500px] h-[500px] bg-teal-600/20 rounded-full blur-[100px] mix-blend-screen opacity-50 -translate-x-1/3 bottom-0" />
+        <div className="absolute w-[600px] h-[600px] bg-green-600/20 rounded-full blur-[120px] mix-blend-screen opacity-50 animate-pulse transition-transform duration-[10000ms] translate-x-1/2 -top-40" />
+        <div className="absolute w-[500px] h-[500px] bg-green-600/20 rounded-full blur-[100px] mix-blend-screen opacity-50 -translate-x-1/3 bottom-0" />
       </div>
 
       <div className="relative z-10 w-full max-w-6xl flex flex-col lg:flex-row items-center gap-12 px-6 lg:px-12 py-12">
@@ -66,10 +66,10 @@ export default function RegisterPage() {
         <div className="flex-1 text-center lg:text-left flex flex-col justify-center order-2 lg:order-1">
           <div className="hidden lg:flex w-full justify-start mb-8">
             <Link href="/" className="inline-flex items-center gap-2 group transition-opacity hover:opacity-80">
-              <div className="bg-emerald-500/10 p-2 rounded-xl border border-emerald-500/20 group-hover:bg-emerald-500/20 transition-colors">
-                <Code2 className="w-6 h-6 text-emerald-400" />
+              <div className="bg-green-500/10 p-2 rounded-xl border border-green-500/20 group-hover:bg-green-500/20 transition-colors">
+                <Code2 className="w-6 h-6 text-green-400" />
               </div>
-              <span className="text-2xl font-bold tracking-tight text-white shadow-emerald-500/20 drop-shadow-md">
+              <span className="text-2xl font-bold tracking-tight text-white shadow-green-500/20 drop-shadow-md">
                 CodeBuddy
               </span>
             </Link>
@@ -87,8 +87,8 @@ export default function RegisterPage() {
                "Expand your open-source network easily"
              ].map((feature, idx) => (
                 <div key={idx} className="flex items-center gap-4 bg-white/5 border border-white/5 p-4 rounded-2xl backdrop-blur-sm">
-                  <div className="bg-emerald-500/10 p-1.5 rounded-lg">
-                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                  <div className="bg-green-500/10 p-1.5 rounded-lg">
+                    <CheckCircle2 className="w-5 h-5 text-green-400" />
                   </div>
                   <span className="text-zinc-300 font-medium">{feature}</span>
                 </div>
@@ -100,8 +100,8 @@ export default function RegisterPage() {
         <div className="w-full max-w-md lg:max-w-lg order-1 lg:order-2">
           
           <div className="lg:hidden flex items-center justify-center gap-2 mb-8 group transition-opacity">
-            <div className="bg-emerald-500/10 p-2 rounded-xl border border-emerald-500/20">
-              <Code2 className="w-6 h-6 text-emerald-400" />
+            <div className="bg-green-500/10 p-2 rounded-xl border border-green-500/20">
+              <Code2 className="w-6 h-6 text-green-400" />
             </div>
             <span className="text-2xl font-bold tracking-tight text-white">
               CodeBuddy
@@ -138,7 +138,7 @@ export default function RegisterPage() {
                   Full Name
                 </label>
                 <div className="relative group">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-zinc-500 group-focus-within:text-emerald-400 transition-colors">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-zinc-500 group-focus-within:text-green-400 transition-colors">
                     <User className="h-4 w-4" />
                   </div>
                   <input
@@ -146,7 +146,7 @@ export default function RegisterPage() {
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="block w-full pl-11 pr-4 py-3.5 bg-black/20 border border-white/10 rounded-xl focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-400 text-white placeholder-zinc-600 outline-none transition-all hover:border-white/20 sm:text-sm"
+                    className="block w-full pl-11 pr-4 py-3.5 bg-black/20 border border-white/10 rounded-xl focus:ring-2 focus:ring-green-500/50 focus:border-green-400 text-white placeholder-zinc-600 outline-none transition-all hover:border-white/20 sm:text-sm"
                     placeholder="John Doe"
                     required
                   />
@@ -158,7 +158,7 @@ export default function RegisterPage() {
                   Email Address
                 </label>
                 <div className="relative group">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-zinc-500 group-focus-within:text-emerald-400 transition-colors">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-zinc-500 group-focus-within:text-green-400 transition-colors">
                     <Mail className="h-4 w-4" />
                   </div>
                   <input
@@ -166,7 +166,7 @@ export default function RegisterPage() {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="block w-full pl-11 pr-4 py-3.5 bg-black/20 border border-white/10 rounded-xl focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-400 text-white placeholder-zinc-600 outline-none transition-all hover:border-white/20 sm:text-sm"
+                    className="block w-full pl-11 pr-4 py-3.5 bg-black/20 border border-white/10 rounded-xl focus:ring-2 focus:ring-green-500/50 focus:border-green-400 text-white placeholder-zinc-600 outline-none transition-all hover:border-white/20 sm:text-sm"
                     placeholder="you@email.com"
                     required
                   />
@@ -178,7 +178,7 @@ export default function RegisterPage() {
                   Password
                 </label>
                 <div className="relative group">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-zinc-500 group-focus-within:text-emerald-400 transition-colors">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-zinc-500 group-focus-within:text-green-400 transition-colors">
                     <Lock className="h-4 w-4" />
                   </div>
                   <input
@@ -186,7 +186,7 @@ export default function RegisterPage() {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="block w-full pl-11 pr-4 py-3.5 bg-black/20 border border-white/10 rounded-xl focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-400 text-white placeholder-zinc-600 outline-none transition-all hover:border-white/20 sm:text-sm tracking-widest"
+                    className="block w-full pl-11 pr-4 py-3.5 bg-black/20 border border-white/10 rounded-xl focus:ring-2 focus:ring-green-500/50 focus:border-green-400 text-white placeholder-zinc-600 outline-none transition-all hover:border-white/20 sm:text-sm tracking-widest"
                     placeholder="••••••••"
                     required
                     minLength={6}
@@ -197,7 +197,7 @@ export default function RegisterPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="relative group w-full flex justify-center items-center py-3.5 px-4 rounded-xl text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 focus:ring-offset-zinc-950 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform active:scale-[0.98] overflow-hidden mt-8"
+                className="relative group w-full flex justify-center items-center py-3.5 px-4 rounded-xl text-sm font-semibold text-white bg-green-600 hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 focus:ring-offset-zinc-950 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform active:scale-[0.98] overflow-hidden mt-8"
               >
                 {/* Button Inner Glow */}
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -215,7 +215,7 @@ export default function RegisterPage() {
 
             <p className="mt-8 text-center text-sm text-zinc-500">
               Already have an account?{' '}
-              <Link href="/login" className="font-semibold text-emerald-400 hover:text-emerald-300 transition-colors">
+              <Link href="/login" className="font-semibold text-green-400 hover:text-green-300 transition-colors">
                 Sign in securely
               </Link>
             </p>
