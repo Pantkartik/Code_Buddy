@@ -52,175 +52,177 @@ export default function RegisterPage() {
   if (!isClient) return null;
 
   return (
-    <div className="min-h-screen flex bg-zinc-950 text-white font-sans selection:bg-indigo-500/30">
+    <div className="relative min-h-screen flex items-center justify-center bg-[#030303] text-zinc-100 selection:bg-emerald-500/30 overflow-hidden font-sans">
       
-      {/* Right signup form pane */}
-      <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-20 xl:px-32 relative order-1 lg:order-none z-10">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-indigo-500/5 via-zinc-900/0 to-zinc-950 pointer-events-none" />
-        
-        <div className="mx-auto w-full max-w-sm relative z-10">
-          <div className="lg:hidden mb-12 flex items-center gap-2 font-bold text-2xl tracking-tight justify-center">
-            <Code2 className="text-indigo-500 w-8 h-8" />
-            CodeBuddy
-          </div>
-
-          <div>
-            <h2 className="text-3xl font-extrabold tracking-tight">Create an account</h2>
-            <p className="mt-2 text-sm text-zinc-400">
-              Start finding your perfect pair programming partners.
-            </p>
-          </div>
-
-          <div className="mt-8">
-            <div className="grid grid-cols-1 gap-3">
-              <button className="flex items-center justify-center gap-3 w-full border border-zinc-800 hover:border-zinc-700 bg-zinc-900/50 hover:bg-zinc-800 transition-all rounded-xl px-4 py-3 text-sm font-medium shadow-sm">
-                <Github className="w-4 h-4" /> Sign up with GitHub
-              </button>
-            </div>
-
-            <div className="mt-6">
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-zinc-800" />
-                </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-zinc-950 text-zinc-500">Or register with email</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-6">
-              <form onSubmit={handleSubmit} className="space-y-4">
-                {error && (
-                  <div className="bg-red-500/10 border border-red-500/20 text-red-400 px-4 py-3 rounded-xl text-sm flex items-center justify-between animate-in fade-in slide-in-from-top-2">
-                    {error}
-                  </div>
-                )}
-
-                <div>
-                  <label className="block text-sm font-medium text-zinc-300 mb-1.5" htmlFor="name">
-                    Full Name
-                  </label>
-                  <div className="relative group">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-zinc-500 group-focus-within:text-indigo-400 transition-colors">
-                      <User className="h-4 w-4" />
-                    </div>
-                    <input
-                      id="name"
-                      type="text"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      className="block w-full pl-10 pr-3 py-3 bg-zinc-900/30 border border-zinc-800 rounded-xl focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-white placeholder-zinc-600 outline-none transition-all hover:border-zinc-700"
-                      placeholder="John Doe"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-zinc-300 mb-1.5" htmlFor="email">
-                    Email Address
-                  </label>
-                  <div className="relative group">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-zinc-500 group-focus-within:text-indigo-400 transition-colors">
-                      <Mail className="h-4 w-4" />
-                    </div>
-                    <input
-                      id="email"
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="block w-full pl-10 pr-3 py-3 bg-zinc-900/30 border border-zinc-800 rounded-xl focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-white placeholder-zinc-600 outline-none transition-all hover:border-zinc-700"
-                      placeholder="you@example.com"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-zinc-300 mb-1.5" htmlFor="password">
-                    Password
-                  </label>
-                  <div className="relative group">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-zinc-500 group-focus-within:text-indigo-400 transition-colors">
-                      <Lock className="h-4 w-4" />
-                    </div>
-                    <input
-                      id="password"
-                      type="password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      className="block w-full pl-10 pr-3 py-3 bg-zinc-900/30 border border-zinc-800 rounded-xl focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-white placeholder-zinc-600 outline-none transition-all hover:border-zinc-700"
-                      placeholder="Create a password"
-                      required
-                      minLength={6}
-                    />
-                  </div>
-                </div>
-
-                <div className="pt-4">
-                  <button
-                    type="submit"
-                    disabled={isLoading}
-                    className="group w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-xl shadow-[0_0_15px_rgba(79,70,229,0.2)] text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 focus:ring-offset-zinc-950 disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:scale-[1.02]"
-                  >
-                    {isLoading ? (
-                      <Loader2 className="animate-spin h-5 w-5" />
-                    ) : (
-                      <>
-                        Create Account
-                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </>
-                    )}
-                  </button>
-                </div>
-              </form>
-
-              <p className="mt-8 text-center text-sm tracking-wide text-zinc-400">
-                Already have an account?{' '}
-                <Link href="/login" className="font-semibold text-white hover:text-indigo-400 transition-colors">
-                  Log in instead
-                </Link>
-              </p>
-            </div>
-          </div>
-        </div>
+      {/* Dynamic Ambient Background - Flipped & Emerald hue for Register */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+        <div className="absolute w-[600px] h-[600px] bg-emerald-600/20 rounded-full blur-[120px] mix-blend-screen opacity-50 animate-pulse transition-transform duration-[10000ms] translate-x-1/2 -top-40" />
+        <div className="absolute w-[500px] h-[500px] bg-teal-600/20 rounded-full blur-[100px] mix-blend-screen opacity-50 -translate-x-1/3 bottom-0" />
       </div>
 
-      {/* Left visual pane - visible on desktop */}
-      <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-zinc-900 border-l border-zinc-800 flex-col justify-between p-12 order-2">
-        <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-900/40 via-zinc-900/10 to-zinc-950 pointer-events-none" />
-        <div className="absolute -right-40 -top-40 w-96 h-96 bg-emerald-500/20 blur-[120px] rounded-full pointer-events-none" />
+      <div className="relative z-10 w-full max-w-6xl flex flex-col lg:flex-row items-center gap-12 px-6 lg:px-12 py-12">
         
-        <div className="relative z-10 flex w-full justify-end">
-          <div className="flex items-center gap-2 font-bold text-2xl tracking-tight">
-            <Code2 className="text-indigo-500 w-8 h-8" />
-            CodeBuddy
+        {/* Left Marketing / Value Prop Section */}
+        <div className="flex-1 text-center lg:text-left flex flex-col justify-center order-2 lg:order-1">
+          <div className="hidden lg:flex w-full justify-start mb-8">
+            <Link href="/" className="inline-flex items-center gap-2 group transition-opacity hover:opacity-80">
+              <div className="bg-emerald-500/10 p-2 rounded-xl border border-emerald-500/20 group-hover:bg-emerald-500/20 transition-colors">
+                <Code2 className="w-6 h-6 text-emerald-400" />
+              </div>
+              <span className="text-2xl font-bold tracking-tight text-white shadow-emerald-500/20 drop-shadow-md">
+                CodeBuddy
+              </span>
+            </Link>
           </div>
-        </div>
 
-        <div className="relative z-10 mb-20">
-          <h2 className="text-4xl font-bold tracking-tight mb-8 leading-tight max-w-lg">
+          <h1 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight mb-8 leading-[1.1] text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-zinc-500 max-w-lg mx-auto lg:mx-0">
             Build incredible software, together.
-          </h2>
+          </h1>
           
-          <div className="space-y-6">
+          <div className="space-y-6 max-w-lg mx-auto lg:mx-0">
              {[
                "Smart matching based on tech stack & skill level",
                "Real-time pair programming requests",
                "Develop streaks to keep yourself motivated",
                "Expand your open-source network easily"
              ].map((feature, idx) => (
-                <div key={idx} className="flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-400" />
-                  <span className="text-zinc-300 text-lg">{feature}</span>
+                <div key={idx} className="flex items-center gap-4 bg-white/5 border border-white/5 p-4 rounded-2xl backdrop-blur-sm">
+                  <div className="bg-emerald-500/10 p-1.5 rounded-lg">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+                  </div>
+                  <span className="text-zinc-300 font-medium">{feature}</span>
                 </div>
              ))}
           </div>
-
         </div>
-      </div>
 
+        {/* Right Form Section (Glassmorphism) */}
+        <div className="w-full max-w-md lg:max-w-lg order-1 lg:order-2">
+          
+          <div className="lg:hidden flex items-center justify-center gap-2 mb-8 group transition-opacity">
+            <div className="bg-emerald-500/10 p-2 rounded-xl border border-emerald-500/20">
+              <Code2 className="w-6 h-6 text-emerald-400" />
+            </div>
+            <span className="text-2xl font-bold tracking-tight text-white">
+              CodeBuddy
+            </span>
+          </div>
+
+          <div className="bg-zinc-900/40 backdrop-blur-3xl border border-white/10 p-8 sm:p-10 rounded-[2rem] shadow-[0_0_50px_rgba(0,0,0,0.5)] relative overflow-hidden">
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+            
+            <div className="mb-8 text-center">
+              <h2 className="text-2xl font-semibold tracking-tight text-white">Create Account</h2>
+              <p className="text-sm text-zinc-400 mt-2">Start finding your perfect pair programming partners.</p>
+            </div>
+
+            <button className="flex items-center justify-center gap-3 w-full bg-white text-zinc-950 font-semibold rounded-xl px-4 py-3 hover:bg-zinc-200 transition-colors shadow-lg shadow-white/5 active:scale-[0.98]">
+              <Github className="w-5 h-5" /> Sign up with GitHub
+            </button>
+
+            <div className="flex items-center gap-4 my-8">
+              <div className="flex-1 border-t border-zinc-800"></div>
+              <span className="text-xs font-medium text-zinc-500 uppercase tracking-widest">Or Register With</span>
+              <div className="flex-1 border-t border-zinc-800"></div>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-5">
+              {error && (
+                <div className="bg-red-500/10 border border-red-500/20 text-red-400 px-4 py-3 rounded-xl text-sm flex items-center justify-between animate-in fade-in zoom-in-95 duration-300">
+                  {error}
+                </div>
+              )}
+
+              <div className="space-y-1.5">
+                <label className="text-sm font-medium text-zinc-300 px-1" htmlFor="name">
+                  Full Name
+                </label>
+                <div className="relative group">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-zinc-500 group-focus-within:text-emerald-400 transition-colors">
+                    <User className="h-4 w-4" />
+                  </div>
+                  <input
+                    id="name"
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="block w-full pl-11 pr-4 py-3.5 bg-black/20 border border-white/10 rounded-xl focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-400 text-white placeholder-zinc-600 outline-none transition-all hover:border-white/20 sm:text-sm"
+                    placeholder="John Doe"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-sm font-medium text-zinc-300 px-1" htmlFor="email">
+                  Email Address
+                </label>
+                <div className="relative group">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-zinc-500 group-focus-within:text-emerald-400 transition-colors">
+                    <Mail className="h-4 w-4" />
+                  </div>
+                  <input
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="block w-full pl-11 pr-4 py-3.5 bg-black/20 border border-white/10 rounded-xl focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-400 text-white placeholder-zinc-600 outline-none transition-all hover:border-white/20 sm:text-sm"
+                    placeholder="you@email.com"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-sm font-medium text-zinc-300 px-1" htmlFor="password">
+                  Password
+                </label>
+                <div className="relative group">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-zinc-500 group-focus-within:text-emerald-400 transition-colors">
+                    <Lock className="h-4 w-4" />
+                  </div>
+                  <input
+                    id="password"
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="block w-full pl-11 pr-4 py-3.5 bg-black/20 border border-white/10 rounded-xl focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-400 text-white placeholder-zinc-600 outline-none transition-all hover:border-white/20 sm:text-sm tracking-widest"
+                    placeholder="••••••••"
+                    required
+                    minLength={6}
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="relative group w-full flex justify-center items-center py-3.5 px-4 rounded-xl text-sm font-semibold text-white bg-emerald-600 hover:bg-emerald-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 focus:ring-offset-zinc-950 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform active:scale-[0.98] overflow-hidden mt-8"
+              >
+                {/* Button Inner Glow */}
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                
+                {isLoading ? (
+                  <Loader2 className="animate-spin h-5 w-5" />
+                ) : (
+                  <>
+                    <span className="relative z-10">Sign Up Now</span>
+                    <ArrowRight className="relative z-10 ml-2 w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
+                  </>
+                )}
+              </button>
+            </form>
+
+            <p className="mt-8 text-center text-sm text-zinc-500">
+              Already have an account?{' '}
+              <Link href="/login" className="font-semibold text-emerald-400 hover:text-emerald-300 transition-colors">
+                Sign in securely
+              </Link>
+            </p>
+          </div>
+        </div>
+        
+      </div>
     </div>
   );
 }
