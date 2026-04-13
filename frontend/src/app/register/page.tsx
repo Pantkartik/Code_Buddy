@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { authService } from '../../services/api';
@@ -14,7 +14,15 @@ export default function RegisterPage() {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  const login = useAuthStore((state) => state.login);
+  const { login, isAuthenticated } = useAuthStore();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+    if (isAuthenticated) {
+      router.push('/dashboard');
+    }
+  }, [isAuthenticated, router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,11 +43,13 @@ export default function RegisterPage() {
       );
       router.push('/dashboard');
     } catch (err: any) {
-      setError(err.response?.data?.message || 'Failed to register. Please try again.');
+      setError(err.response?.data?.message || err.message || 'Failed to register. Please try again.');
     } finally {
       setIsLoading(false);
     }
   };
+
+  if (!isClient) return null;
 
   return (
     <div className="min-h-screen flex bg-zinc-950 text-white font-sans selection:bg-indigo-500/30">
